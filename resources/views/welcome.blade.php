@@ -21,7 +21,7 @@
             }
 
             .full-height {
-                height: 100vh;
+                height: 10vh;
             }
 
             .flex-center {
@@ -62,6 +62,10 @@
                 margin-bottom: 30px;
             }
         </style>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -78,22 +82,23 @@
                     @endauth
                 </div>
             @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
         </div>
+            <div class="container">
+                <div class="row">
+                @foreach($product as $p)
+                    <div class="col-md-3" style="margin-left:20px; margin-bottom:20px;">
+                        <div class="card resize">
+                            <img class="card-img-top" src="{{asset('/image/img_avatar1.png')}}" alt="Card image" width="10%">
+                            <div class="card-body">
+                                <h6 class="card-title">{{ $p->name_product }}</h6>
+                                <p>Rp. {{ $p->price }}</p>
+                                <a href="/order/beli/{{ $p->code }}" class="btn btn-success btn-block">Beli</a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+                </div>               
+            </div>
+            
     </body>
 </html>
