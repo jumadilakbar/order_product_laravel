@@ -38,6 +38,11 @@ Route::get('/product/hapus_permanen/{code}', 'ProductController@hapus_permanen')
 Route::get('/product/hapus_permanen_semua', 'ProductController@hapus_permanen_semua');
 
 // Order
-// Route::get('/pegawai','PegawaiController@index');
+Route::get('order/beli/{code}','ProductController@beli');
+Route::post('order/aksi_beli/{code}','OrderController@aksi_beli');
+
+Route::get('/orders', 'OrderController@index');
+
+
 
 

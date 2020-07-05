@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
-use DataTables;
+use DataTables; 
 
 use Illuminate\Support\Facades\DB;
 
@@ -68,6 +68,14 @@ class ProductController extends Controller
         $product = Product::find($code);
         return view('product.edit', ['product' => $product]);
     }
+
+    public function beli($code)
+    {
+        // echo $code;
+        $product = Product::find($code);
+        return view('order.beli', ['product' => $product]);
+    }
+
 
     public function update($code, Request $request)
     {

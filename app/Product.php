@@ -14,5 +14,10 @@ class Product extends Model
     protected $fillable = ['name_product','price','stok'];
 
     protected $primaryKey = 'code';
-    protected $dates = ['deleted_at'];
+    protected $dates = ['deleted_at']; 
+
+    public function order()
+    {
+    	return $this->hasOne('App\order');
+    }
 }
